@@ -54,6 +54,7 @@ export default class App extends React.Component {
                             }
                             
                         })}
+                        <a href="http://localhost:8000/wp-admin" className="admin-login" target="_blank">Login</a>
                         </div>
                     </div>
 
