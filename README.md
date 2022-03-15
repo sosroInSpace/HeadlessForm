@@ -1,8 +1,10 @@
 # HeadlessForm
 
-Headless Wordpress with dynamic form fields
-
 This App runs Wordpress as a headless CMS via docker.
+
+Front end created in React.js
+
+Form submissions submitted via lambda API gateway.
 
 # Steps to start app
 
