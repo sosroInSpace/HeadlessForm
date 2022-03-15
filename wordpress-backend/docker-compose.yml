@@ -20,6 +20,7 @@ services:
        - "8000:80"
      volumes:
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./dump.sql
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306

@@ -30,6 +30,7 @@ export default class FormPage extends React.Component {
  getPageContent = async () => {
     const location =  window.location.pathname;
     const api_url =   "http://localhost:8000/wp-json/wp/v2/pages/?slug=" + location;
+    console.log(api_url);
 
         let res = await axios.get(
             api_url
