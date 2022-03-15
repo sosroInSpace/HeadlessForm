@@ -8,20 +8,10 @@ Form submissions submitted via lambda API gateway.
 
 # Steps to start app
 
-**Start Wordpress via Docker**
-
-1. Navigate to the folder `wordpress-backend`
-2. Run `docker-compose up`
-3. Wordpress should start running now on port 8000
-4. Create your site.
-5. Replace the current wordpress database with the sql file `theme-sql.sql` this can be done via command line or phpmyadmin(port:8080)
-6. Log back into Wordpress with the following credentals: Username: `admin` Password: `29hillstreet` 
-7. Make sure to resave your permalinks via Settings > Permalinks for the API endpoints to become live.
+1. Execute `run.sh`
+2. this will start your project (wordpress docker + react app)
+6. Log into wordpress via credentals: Username: `admin` Password: `29hillstreet`  at port 8000/wp-admin
+7. Navigate to `plugins` active `advanced custom fields plugin`
+7. Make sure to resave your permalinks via `Settings > Permalinks` for the API endpoints to become live.
 7. Create / Edit pages via the Wordpress dashboard this will create forms for the front end app with additional form fields to the master form.
 8. Some examples have been included.
-
-**Start React front end**
-
-1. Navigate to the folder `wordpress-frontend`
-2. run `npm install` and `npm start` this will start the react app.
-3. Forms are being submitted to an AWS lambda function via API gateway.

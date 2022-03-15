@@ -1,5 +1,3 @@
--- MySQL dump 10.13  Distrib 5.7.37, for Linux (x86_64)
---
 -- Host: localhost    Database: wordpress
 -- ------------------------------------------------------
 -- Server version	5.7.37

@@ -86,6 +86,7 @@ define( 'NONCE_SALT',       getenv_docker('WORDPRESS_NONCE_SALT',       '160cb76
 // (See also https://wordpress.stackexchange.com/a/152905/199287)
 
 /**#@-*/
+// Enable WP_DEBUG mode
 
 /**
  * WordPress database table prefix.
