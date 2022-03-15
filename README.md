@@ -15,8 +15,9 @@ Form submissions submitted via lambda API gateway.
 3. Wordpress should start running now on port 8000
 4. Create your site.
 5. Replace the current wordpress database with the sql file `theme-sql.sql` this can be done via command line or phpmyadmin(port:8080)
-6. Log back into Wordpress with the following credentals: Username: `admin` Password: `29hillstreet`
-7. Create / Edit pages via the Wordpress dashboard  to create forms for the front end app + add additional form fields to the master form.
+6. Log back into Wordpress with the following credentals: Username: `admin` Password: `29hillstreet` 
+7. Make sure to resave your permalinks via Settings > Permalinks for the API endpoints to become live.
+7. Create / Edit pages via the Wordpress dashboard this will create forms for the front end app with additional form fields to the master form.
 8. Some examples have been included.
 
 **Start React front end**
