@@ -278,12 +278,12 @@ extends
                         &::after {
                             content: "";
                             display: inline-block;
-                            height: 18px;
-                            width: 18px;
+                            height: 20px;
+                            width: 20px;
                             transform: rotate(-45deg);
-                            left: 2px;
-                            top: 2px;
-                            background: #ffc107;
+                            left: 1px;
+                            top: 1px;
+                            background: $init_black;
                             border-radius: 100%;
                         }
                     }
@@ -292,10 +292,24 @@ extends
                 .checkbox input[type="checkbox"]+label::after {
                     content: none;
                 }
+                .checkbox input[type="checkbox"]:checked+label::before {
+                    content: "";
+                    border:1px solid $init_black;
+                }
 
                 /*Unhide the checkmark on the checked state*/
                 .checkbox input[type="checkbox"]:checked+label::after {
                     content: "";
+                    animation:selected .6s 1;
+                    animation-fill-mode:forwards;
+                }
+                @keyframes selected {
+                    0%{
+                        opacity:0;
+                    }
+                    100%{
+                        opacity:1;
+                    }
                 }
 
             }
