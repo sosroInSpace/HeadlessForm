@@ -107,18 +107,18 @@ export default class FormPage extends React.Component {
 
   render(){
 
-  const { select_name, text_fields, para_fields, page_name } = this.state;
+  const { select_name, text_fields, para_fields, page_name, select_option } = this.state;
 
 
   return (
 
       <div className="page">
         <MasterForm
-        form_name={this.state.page_name}
-        text_fields={this.state.text_fields}
-        para_fields={this.state.para_fields}
-        select_name={this.state.select_name}
-        select_option={this.state.select_option}
+        form_name={page_name}
+        text_fields={text_fields}
+        para_fields={para_fields}
+        select_name={select_name}
+        select_option={select_option}
          />
 
        
