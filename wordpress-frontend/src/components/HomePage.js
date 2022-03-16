@@ -3,7 +3,7 @@
 */
 
 
-import React, { Component } from 'react';  
+import React, { Component } from 'react';
 import axios from "axios";
 import MasterForm from './MasterForm';
 
@@ -11,15 +11,15 @@ import MasterForm from './MasterForm';
 export default class HomePage extends React.Component {
 
 
-render(){
+    render() {
 
-return (
+        return (
 
-      <div className="page">
-        <MasterForm
-        form_name="Master"
-         />
-      </div>
-    );
-  }
+            <div className="page">
+              <MasterForm
+              form_name="Master"
+               />
+          </div>
+        );
+    }
 }

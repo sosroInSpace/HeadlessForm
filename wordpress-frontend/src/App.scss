@@ -16,35 +16,36 @@ mixins
 
 // Function for converting a px based font-size to rem.
 @function calculateRem($size) {
-  $remSize: $size / 16px;
-//Default font size on html element is 100%, equivalent to 16px;
-  @return #{$remSize}rem;
+    $remSize: $size / 16px;
+    //Default font size on html element is 100%, equivalent to 16px;
+    @return #{$remSize}rem;
 }
 
 // Mixin that will include the fall back px declaration as well as the calculated rem value.
 @mixin fontSize($size) {
-  font-size: $size;
-  font-size: calculateRem($size);
+    font-size: $size;
+    font-size: calculateRem($size);
 }
 
 /* ----------------------------------------------
 extends
 -----------------------------------------------*/
 %button {
-    background:$tert_black;
-    color:$white;
-    text-transform:uppercase;
+    background: $tert_black;
+    color: $white;
+    text-transform: uppercase;
     @include fontSize(14px);
-    transition:2s;
-    border-radius:15px;
-    font-weight:bold;
-    letter-spacing:1px;
-    cursor:pointer;
+    transition: 2s;
+    border-radius: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+
     &:hover {
-        background:$init_black;
-        color:$white;
-        border:2px solid $init_black;
-        transition:.2s;
+        background: $init_black;
+        color: $white;
+        border: 2px solid $init_black;
+        transition: .2s;
 
     }
 }
@@ -53,234 +54,265 @@ extends
 
 #root {
     background-color: $init_black;
-    min-height:100vh;
+    min-height: 100vh;
+
     .topnav {
         overflow: hidden;
         background-color: $init_black;
-        display:flex;
-        padding:25px 15px;
-        box-shadow:0px -15px 45px -4px #000000;
-        position:fixed;
-        width:250px;
-        height:100%;
+        display: flex;
+        padding: 25px 15px;
+        box-shadow: 0px -15px 45px -4px #000000;
+        position: fixed;
+        width: 250px;
+        height: 100%;
         flex-direction: column;
 
         a.admin-login {
-             @extend %button;
-             margin-top:50px;
+            @extend %button;
+            margin-top: 50px;
         }
+
         div {
-             max-width:$max-width;
-             margin:auto;
-             text-align:left;
-             width:100%;
-             display:flex;
-             flex-wrap:wrap;
-             flex-direction:flex-start;
-             margin:0;
+            max-width: $max-width;
+            margin: auto;
+            text-align: left;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: flex-start;
+            margin: 0;
+
             a {
-                text-decoration:none;
-                padding:15px 25px;
-                text-transform:uppercase;
-                color:$white;
+                text-decoration: none;
+                padding: 15px 25px;
+                text-transform: uppercase;
+                color: $white;
                 @include fontSize(14px);
-                font-weight:bold;
-                width:100%;
+                font-weight: bold;
+                width: 100%;
             }
         }
 
     }
+
     .page {
-        max-width:$max_width;
-        margin:auto;
-        padding:25px 25px 25px 25px;
+        max-width: $max_width;
+        margin: auto;
+        padding: 25px 25px 25px 25px;
+
         &.thank-you {
-            min-height:100vh;
-            display:flex;
-            align-items:center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             justify-content: center;
+
             .thanks-wrapper {
-                position:relative;
-                left:125px;
+                position: relative;
+                left: 125px;
+
                 p {
-                    color:$white;
-                    animation:thanksIn 1s 1;
-                    animation-fill-mode:forwards;
-                    opacity:0;
-                    position:relative;
+                    color: $white;
+                    animation: thanksIn 1s 1;
+                    animation-fill-mode: forwards;
+                    opacity: 0;
+                    position: relative;
                 }
+
                 @keyframes thanksIn {
-                    0%{
-                        opacity:0;
-                        top:15px;
+                    0% {
+                        opacity: 0;
+                        top: 15px;
                     }
-                    100%{
-                        opacity:1;
-                        top:0;
+
+                    100% {
+                        opacity: 1;
+                        top: 0;
                     }
                 }
             }
         }
 
         .form-header {
-            margin-top:25px;
-            text-align:center;
-            max-width:650px;
-            position:relative;
-            left:125px;
-            text-align:left;
-            margin:auto;
+            margin-top: 25px;
+            text-align: center;
+            max-width: 650px;
+            position: relative;
+            left: 125px;
+            text-align: left;
+            margin: auto;
+
             h1 {
-                margin:0;
-                padding:15px 25px;
-                display:inline-block;
-                border-top-left-radius:15px;
-                border-top-right-radius:15px;
-                text-transform:capitalize;
-                font-size:16px;
-                background:$black;
-                color:$white;
-                letter-spacing:1px;
-                text-transform:uppercase;
-                animation:formheadingIn 1s 1;
-                animation-fill-mode:forwards;
-                animation-delay:.6s;
-                opacity:0;
-                top:50px;
-                position:relative;
+                margin: 0;
+                padding: 15px 25px;
+                display: inline-block;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                text-transform: capitalize;
+                font-size: 16px;
+                background: $black;
+                color: $white;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                animation: formheadingIn 1s 1;
+                animation-fill-mode: forwards;
+                animation-delay: .6s;
+                opacity: 0;
+                top: 50px;
+                position: relative;
                 @include fontSize(14px);
             }
+
             @keyframes formheadingIn {
-                0%{
-                    opacity:0;
-                    top:50px;
+                0% {
+                    opacity: 0;
+                    top: 50px;
                 }
-                100%{
-                    opacity:1;
-                    top:0;
+
+                100% {
+                    opacity: 1;
+                    top: 0;
                 }
             }
         }
 
         form {
-            border-radius:15px;
-            max-width:650px;
-            margin:auto;
-            padding:40px 25px;
-            margin-bottom:100px;
-            opacity:0;
-            animation:formIn 1s 1;
-            animation-fill-mode:forwards;
-            margin-top:25px;
-            background:$black;
-             box-shadow:0px 4px 37px -4px #000000;
-             position:relative;
-             left:125px;
+            border-radius: 15px;
+            max-width: 650px;
+            margin: auto;
+            padding: 40px 25px;
+            margin-bottom: 100px;
+            opacity: 0;
+            animation: formIn 1s 1;
+            animation-fill-mode: forwards;
+            margin-top: 25px;
+            background: $black;
+            box-shadow: 0px 4px 37px -4px #000000;
+            position: relative;
+            left: 125px;
+
             .fieldset-double {
-                display:flex;
-                width:100%;
+                display: flex;
+                width: 100%;
+
                 fieldset {
-                    width:100%;
+                    width: 100%;
                 }
             }
+
             fieldset {
-                border:none;
+                border: none;
+
                 label {
-                    display:block;
-                    margin-bottom:15px;
-                    text-transform:capitalize;
+                    display: block;
+                    margin-bottom: 15px;
+                    text-transform: capitalize;
                     @include fontSize(14px);
-                    color:$white;
+                    color: $white;
                 }
+
                 input {
-                    width:100%;
-                    height:45px;
-                    background:$tert_black;
-                    border:2px solid $tert_black;
-                    border-radius:10px;
-                    text-indent:5px;
-                    color:$white;
-                    &[type='submit']{
+                    width: 100%;
+                    height: 45px;
+                    background: $tert_black;
+                    border: 2px solid $tert_black;
+                    border-radius: 10px;
+                    text-indent: 5px;
+                    color: $white;
+
+                    &[type='submit'] {
                         @extend %button;
-                        width:250px;
+                        width: 250px;
+                        margin-top: 15px;
 
                     }
-                    &[type="checkbox"]{
-                        width:auto;
-                        height:auto;
+
+                    &[type="checkbox"] {
+                        width: auto;
+                        height: auto;
                     }
                 }
+
                 textarea {
-                    width:100%;
-                    height:100px;
-                    border-radius:5px;
-                    border:2px solid $tert_black;
-                    background:$tert_black;
-                    color:$white;
-                    box-sizing:border-box;
-                    text-indent:5px;
-                    padding-top:5px;
+                    width: 100%;
+                    height: 100px;
+                    border-radius: 5px;
+                    border: 2px solid $tert_black;
+                    background: $tert_black;
+                    color: $white;
+                    box-sizing: border-box;
+                    text-indent: 5px;
+                    padding-top: 5px;
 
                 }
+
                 .checkbox {
-                    border-bottom: 1px solid rgba(255,255,255,0.1);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                     padding-bottom: 15px;
+
                     input[type="checkbox"] {
                         opacity: 0;
                     }
+
                     label {
-                        position:relative;
-                        padding-left:35px;
+                        position: relative;
+                        padding-left: 35px;
+                        cursor:pointer;
+                        padding-top:4px;
+
                         &::before,
                         &::after {
-                            position:absolute;
+                            position: absolute;
                         }
+
                         &::before {
                             content: "";
-                            display: inline-block;  
+                            display: inline-block;
                             height: 20px;
-                            width: 20px;                           
-                            border: 1px solid;   
+                            width: 20px;
+                            border: 1px solid;
                             left: 0;
                             top: 0;
                             border-radius: 15px;
                         }
+
                         &::after {
                             content: "";
                             display: inline-block;
-                            height: 6px;
-                            width: 9px;
-                            border-left: 2px solid;
-                            border-bottom: 2px solid;                           
+                            height: 18px;
+                            width: 18px;
                             transform: rotate(-45deg);
-                            left: 6px;
-                            top: 5px;   
+                            left: 2px;
+                            top: 2px;
+                            background: #ffc107;
+                            border-radius: 100%;
                         }
                     }
                 }
-                .checkbox input[type="checkbox"] + label::after {
+
+                .checkbox input[type="checkbox"]+label::after {
                     content: none;
                 }
+
                 /*Unhide the checkmark on the checked state*/
-                .checkbox input[type="checkbox"]:checked + label::after {
+                .checkbox input[type="checkbox"]:checked+label::after {
                     content: "";
                 }
-               
+
             }
         }
+
         @keyframes formIn {
-            0%{
-                opacity:0;
-                margin-top:15px;
+            0% {
+                opacity: 0;
+                margin-top: 15px;
             }
-            100%{
-                opacity:1;
-                margin-top:0;
+
+            100% {
+                opacity: 1;
+                margin-top: 0;
             }
         }
-        
+
     }
 
 }
-
-

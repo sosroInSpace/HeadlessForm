@@ -3,7 +3,7 @@
 */
 
 
-import React, { Component } from 'react';  
+import React, { Component } from 'react';
 import axios from "axios";
 import MasterForm from './MasterForm';
 
@@ -12,25 +12,24 @@ export default class FormPage extends React.Component {
 
 
     constructor(props) {
-    super(props);
+        super(props);
 
-    // State.
+        // State.
 
-    this.state = {
-    
-        text_fields: [],
-        para_fields: [],
-        select_name: [],
-        select_option: [],
-        page_name: ""
-   
-    };
-  }
+        this.state = {
 
- getPageContent = async () => {
-    const location =  window.location.pathname;
-    const api_url =   "http://localhost:8000/wp-json/wp/v2/pages/?slug=" + location;
-    console.log(api_url);
+            text_fields: [],
+            para_fields: [],
+            select_name: [],
+            select_option: [],
+            page_name: ""
+
+        };
+    }
+
+    getPageContent = async () => {
+        const location = window.location.pathname;
+        const api_url = "http://localhost:8000/wp-json/wp/v2/pages/?slug=" + location;
 
         let res = await axios.get(
             api_url
@@ -51,78 +50,76 @@ export default class FormPage extends React.Component {
             // save page name
             page_name = array[0].title.rendered;
             // check if acf fields available - if they are add additional form fields to state
-             if(array[0].ACF){
+            if (array[0].ACF) {
 
                 let acf = array[0].ACF;
-            
+
                 Object.entries(acf).forEach(([key, value]) => {
                     // if default one liner text is available
 
-                   if(key == "form"){
-                        value.forEach(function (item, index) {
+                    if (key == "form") {
+                        value.forEach(function(item, index) {
                             text_fields.push(item.questions);
                         });
-                   }
-                   // if multi line text questions available
-                   if(key == "multi_line"){
-                        value.forEach(function (item, index) {
+                    }
+                    // if multi line text questions available
+                    if (key == "multi_line") {
+                        value.forEach(function(item, index) {
                             para_fields.push(item.multi_line_question);
                         });
-                   }
-                   // if select option is used
-                   if(key == "select"){
-                         value.forEach(function (item, index) {
-                            
+                    }
+                    // if select option is used
+                    if (key == "select") {
+                        value.forEach(function(item, index) {
+
                             select_option.push(item.select_options);
                         });
-                   }
-                   // if select name is used
-                   if(key == "select_name"){
-                       select_name = value;
-                   }
+                    }
+                    // if select name is used
+                    if (key == "select_name") {
+                        select_name = value;
+                    }
 
                 });
-          
 
-             }
-             
+
+            }
+
         });
 
 
-        this.setState({ 
+        this.setState({
             select_name: select_name,
             select_option: select_option,
             para_fields: para_fields,
             text_fields: text_fields,
             page_name: page_name
-         });
+        });
     };
 
 
 
- componentDidMount(){
-    this.getPageContent()
- }
+    componentDidMount() {
+        this.getPageContent()
+    }
 
 
-  render(){
+    render() {
 
-  const { select_name, text_fields, para_fields, page_name, select_option } = this.state;
+        const { select_name, text_fields, para_fields, page_name, select_option } = this.state;
 
 
-  return (
+        return (
 
-      <div className="page">
-        <MasterForm
-        form_name={page_name}
-        text_fields={text_fields}
-        para_fields={para_fields}
-        select_name={select_name}
-        select_option={select_option}
-         />
-
-       
-    </div>
-    );
-  }
+            <div className="page">
+                <MasterForm
+                form_name={page_name}
+                text_fields={text_fields}
+                para_fields={para_fields}
+                select_name={select_name}
+                select_option={select_option}
+                 />
+            </div>
+        );
+    }
 }

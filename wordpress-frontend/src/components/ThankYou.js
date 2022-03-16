@@ -3,21 +3,21 @@
 */
 
 
-import React, { Component } from 'react';  
+import React, { Component } from 'react';
 
 
 export default class ThankYou extends React.Component {
 
 
-render(){
+    render() {
 
-return (
+        return (
 
-      <div className="page thank-you">
-          <div className="thanks-wrapper">
-              <p>Thank you for your submission..</p>
-          </div>
-      </div>
-    );
-  }
+            <div className="page thank-you">
+              <div className="thanks-wrapper">
+                  <p>Thank you for your submission..</p>
+              </div>
+            </div>
+        );
+    }
 }

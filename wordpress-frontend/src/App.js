@@ -39,10 +39,10 @@ export default class App extends React.Component {
         const { pages } = this.state;
 
         return (
-           <Router>
+            <Router>
             <Fragment>
                     {/* Links */}
-                    <div class="topnav">
+                    <div className="topnav">
                         <div>
                         <Link to="/">Home</Link>
                         {pages.map((page, index) => {
@@ -50,7 +50,7 @@ export default class App extends React.Component {
                                 // dont render home link
                             } else {
                                 // render other nav links
-                                return  <Link to={page.slug}>{page.slug.replace(/-/g, " ")}</Link>;
+                                return  <Link to={page.slug} key={index}>{page.slug.replace(/-/g, " ")}</Link>;
                             }
                             
                         })}
@@ -68,6 +68,7 @@ export default class App extends React.Component {
                                     <Route
                                         exact
                                         path='/'
+                                        key={index}
                                         element={<HomePage/>}
                                     />
                                 </Routes>
